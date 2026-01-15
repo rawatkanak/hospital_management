@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Appointment Schedule (FCFS)</h2>
+
+<table border="1">
+<tr>
+<th>ID</th><th>No</th><th>Patient</th><th>Age</th>
+<th>Doctor</th><th>Spec</th><th>Start</th><th>End</th>
+</tr>
+
+{% for r in schedule %}
+<tr>
+<td>{{ r[0] }}</td>
+<td>{{ r[1] }}</td>
+<td>{{ r[2] }}</td>
+<td>{{ r[3] }}</td>
+<td>{{ r[4] }}</td>
+<td>{{ r[5] }}</td>
+<td>{{ r[6] or "-" }}</td>
+<td>{{ r[7] or "-" }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<a href="/clear">Clear All Schedules</a>
+
+{% endblock %}
