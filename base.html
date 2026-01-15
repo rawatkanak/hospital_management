@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Scheduling System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Hospital Patient Scheduling System</h1>
+
+<nav>
+    <a href="/add-doctor">Add Doctor</a> |
+    <a href="/add-patient">Add Patient</a> |
+    <a href="/schedule">View Schedule</a>
+</nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, msg in messages %}
+    <p class="{{ category }}">{{ msg }}</p>
+  {% endfor %}
+{% endwith %}
+
+<hr>
+{% block content %}{% endblock %}
+
+</body>
+</html>
